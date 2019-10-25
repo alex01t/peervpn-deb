@@ -1,0 +1,14 @@
+FROM ubuntu:18.04
+
+RUN apt-get update && apt-get install -y git gcc make
+RUN apt-get install -y zlib1g-dev libssl1.0-dev
+
+WORKDIR /app
+
+RUN git clone https://github.com/peervpn/peervpn.git
+RUN make -C peervpn
+
+COPY . .
+# build debs
+
+RUN find . -ls
