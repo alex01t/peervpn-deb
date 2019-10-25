@@ -1,0 +1,10 @@
+[Unit]
+Description=PeerVPN
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/peervpn /etc/peervpn.conf
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
